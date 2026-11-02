@@ -1,0 +1,20 @@
+<svg class="pixel-icon" viewBox="0 0 16 16" fill="currentColor" shape-rendering="crispEdges" aria-hidden="true" focusable="false">
+{% case include.name %}
+{% when 'sprout' %}
+<path d="M7 7h2v7H7zM3 3h4v2h2v3H5V6H3zM9 2h4v4h-2v2H9zM4 14h8v2H4z"/>
+{% when 'tennis' %}
+<path d="M5 0h6v2H5zM3 2h2v6H3zM11 2h2v6h-2zM5 8h6v2H5zM7 10h2v6H7zM6 2h1v6H6zM9 2h1v6H9zM5 4h6v1H5zM5 6h6v1H5zM12 12h3v3h-3z"/>
+{% when 'snowboard' %}
+<path d="M9 0h3v3H9zM7 4h4v2H7zM5 6h4v2H5zM3 5h2v2H3zM9 6h3v2H9zM12 8h3v2h-3zM5 8h3v2H5zM7 10h3v2H7zM4 10h2v3H4zM9 12h2v2H9zM1 12h2v2H1zM3 14h10v2H3zM13 12h2v2h-2z"/>
+{% when 'eating' %}
+<path d="M1 1h1v4h1V1h1v4h1V1h1v6H4v8H2V7H1zM11 1h3v8h-2v6h-2V5h1z"/>
+{% when 'sleeping' %}
+<path d="M6 1h5v2H8v2H6v6h2v2h5v-2h2v3h-2v2H5v-2H3v-3H1V5h2V3h3zM12 3h3v1h-1v1h-1v1h2v1h-3V6h1V5h1V4h-2z"/>
+{% when 'book' %}
+<path d="M1 2h5v1h1v10H5v-1H1zM9 3h1V2h5v10h-4v1H9zM7 13h2v2H7z"/>
+{% when 'spark' %}
+<path d="M7 0h2v5h2v2h5v2h-5v2H9v5H7v-5H5V9H0V7h5V5h2z"/>
+{% else %}
+<path d="M3 1h7v2H5v10h6V5h2v10H3zM10 3h2v2h-2zM6 6h4v1H6zM6 9h4v1H6z"/>
+{% endcase %}
+</svg>

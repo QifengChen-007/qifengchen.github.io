@@ -17,6 +17,7 @@ docker compose down
 以后再次启动可使用 `docker compose up -d`。
 
 个人资料在 `_data/profile.yml`，导航在 `_data/navigation.yml`，首页在 `index.html`。
+首页像素主题使用 `_layouts/pixel.html`、`_includes/pixel_*.html`、`assets/css/pixel.css` 和 `assets/js/pixel.js`。支持日夜切换，偏好保存在浏览器本地；字体及其 OFL 许可存放在 `assets/fonts/`。设计参考 https://github.com/oneThousand1000/academic-personal-website ，像素图标和装饰由本站独立绘制。
 Education、Hobbies 和 Publications 位于首页，导航点击后滚动到对应板块。Showcase 暂时隐藏。
 头像使用 `assets/images/photos/portrait.jpg`，原始 `Linkedin.jpg` 也已保留。
 修改 `_config.yml` 后运行 `docker compose restart`。

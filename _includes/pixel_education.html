@@ -1,0 +1,25 @@
+<section id="education" class="pixel-panel section-panel" aria-labelledby="education-title">
+    <div class="section-heading">
+        <span class="section-number" aria-hidden="true">02</span>
+        <h2 id="education-title">Education</h2>
+        {% include pixel_icon.html name="book" %}
+    </div>
+    <div class="section-body">
+        {% for item in site.data.profile.education %}
+        <div class="education-entry">
+            {% if item.logo %}<img class="school-logo" src="{{ item.logo | relative_url }}" alt="" width="24" height="24">{% endif %}
+            <div>
+                <h3>{{ item.name }}</h3>
+                <p>{{ item.dept }}</p>
+                <div class="education-meta"><span>{{ item.position }}</span><span>{{ item.date }}</span></div>
+            </div>
+        </div>
+        {% endfor %}
+        {% for item in site.data.profile.experience %}
+        <div class="education-entry"><div><h3>{{ item.name }}</h3><p>{{ item.position }}</p><p class="education-meta">{{ item.date }}</p></div></div>
+        {% endfor %}
+        {% for item in site.data.profile.awards %}
+        <div class="education-entry"><div><h3>{{ item.name }}</h3><p class="education-meta">{{ item.date }}</p></div></div>
+        {% endfor %}
+    </div>
+</section>

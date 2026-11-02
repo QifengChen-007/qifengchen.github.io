@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Qifeng Chen — Electrical and Computer Engineering undergraduate at The Ohio State University. Education, interests, and publications.">
+    <meta name="theme-color" content="#f4f1e8">
+    <title>{{ site.data.profile.primary_name }} · Personal Website</title>
+    <link rel="icon" type="image/svg+xml" href="{{ '/assets/images/pixel-sprout.svg' | relative_url }}">
+    <link rel="preload" href="{{ '/assets/fonts/PressStart2P-Regular.ttf' | relative_url }}" as="font" type="font/ttf" crossorigin>
+    <script>
+        try {
+            var savedTheme = localStorage.getItem('qifeng-theme');
+            if (savedTheme === 'dark') document.documentElement.dataset.theme = 'dark';
+        } catch (error) { /* The light theme also works without local storage. */ }
+    </script>
+    <link rel="stylesheet" href="{{ '/assets/css/pixel.css' | relative_url }}?v={{ site.time | date: '%s' }}">
+    <script defer src="{{ '/assets/js/pixel.js' | relative_url }}"></script>
+</head>
+<body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+        <nav class="site-nav" aria-label="Main navigation">
+            <a class="terminal-brand" href="{{ '/#home' | relative_url }}" aria-label="Qifeng Chen home">
+                {% include pixel_icon.html name="sprout" %}
+                <span>qifeng<span class="terminal-path">:~/home</span>$</span>
+                <span class="terminal-cursor" aria-hidden="true"></span>
+            </a>
+            <div class="nav-actions">
+                <ul class="nav-links">
+                    {% for item in site.data.navigation.pages %}
+                    <li><a href="{{ item.url | relative_url }}" data-section="{{ item.url | split: '#' | last }}"{% if forloop.first %} aria-current="location"{% endif %}>{{ item.name }}</a></li>
+                    {% endfor %}
+                </ul>
+                <button class="theme-toggle" type="button" aria-label="Switch to dark theme" aria-pressed="false" hidden>
+                    <span class="theme-icon" aria-hidden="true">☾</span><span class="theme-label">Night</span>
+                </button>
+            </div>
+        </nav>
+    </header>
+    <main id="main-content" class="page-shell">
+        {{ content }}
+    </main>
+    <footer class="site-footer">
+        <span>© {{ 'now' | date: '%Y' }} {{ site.data.profile.primary_name }}</span>
+        <span class="footer-template">{{ site.data.display.footer_text }}</span>
+        <a href="#home">Back to top ↑</a>
+    </footer>
+</body>
+</html>
