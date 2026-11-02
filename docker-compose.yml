@@ -1,0 +1,10 @@
+services:
+  jekyll:
+    build: .
+    ports:
+      - "127.0.0.1:1313:1313"
+      - "127.0.0.1:35729:35729"
+    volumes:
+      - .:/srv/jekyll
+    environment:
+      JEKYLL_ENV: development

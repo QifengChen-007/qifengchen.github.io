@@ -13,7 +13,8 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-baseurl: "/academic-homepage" # the subpath of your site, e.g. /blog
+baseurl: ""
+url: "http://localhost:1313"
 
 # Build settings
 markdown: kramdown
@@ -39,3 +40,22 @@ collections:
   - news
   - showcase
   - posts
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - Dockerfile
+  - docker-compose.yml
+  - README.md
+  - LOCAL-README.md
+  - LICENSE
+  - Linkedin.jpg
+  - vendor/
+  - node_modules/
+  - index_layout2.html
+  - blog.html
+  - _posts/
+  - _news/
+  - _publications/2023/
+  - _publications/2024/
+  - _showcase/

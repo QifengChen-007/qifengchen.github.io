@@ -1,0 +1,26 @@
+{% assign pubs_by_year = site.publications | sort: "date" | reverse | group_by_exp: "item", "item.date | date: '%Y'" %}
+<div class="card border-0 shadow-sm bg-white publications-card">
+    <div class="card-body p-4 p-md-5">
+        <h2 class="h3 mb-4">Publications</h2>
+        {% for year in pubs_by_year %}
+        <div class="publication-year" id="year-{{ year.name }}">{{ year.name }}</div>
+        {% for item in year.items %}
+        <article class="publication-entry">
+            <h3 class="publication-title">{{ item.title }}</h3>
+            <p class="publication-authors">{% include widgets/author_list.html authors=item.authors %}</p>
+            <p class="publication-venue">{{ item.pub }}</p>
+            <div class="publication-links">
+                {% for label in item.demo_links %}
+                <span class="publication-link" aria-disabled="true" title="Layout preview only">{{ label }}</span>
+                {% endfor %}
+                {% for link in item.links %}
+                <a class="publication-link" href="{% if link[1].url %}{{ link[1].url }}{% else %}{{ link[1] }}{% endif %}" target="_blank" rel="noopener noreferrer">{{ link[0] }}</a>
+                {% endfor %}
+            </div>
+        </article>
+        {% endfor %}
+        {% else %}
+        <p class="mb-0">Details coming soon.</p>
+        {% endfor %}
+    </div>
+</div>

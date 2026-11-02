@@ -9,7 +9,7 @@
                         <div class="figure d-none d-md-block">
                             <img 
                                 src="{{ site.data.profile.portrait_url | relative_url }}" 
-                                class="figure-img img-fluid" 
+                                class="figure-img img-fluid" alt="{{ site.data.profile.primary_name }}"
                                 data-toggle="tooltip" 
                                 data-placement="top" 
                                 title="{{ site.data.profile.portrait_caption }}">
@@ -36,9 +36,11 @@
 
                 <div class="row small">
                     <div class="col text-center">
+                        {% if site.data.profile.email %}
                         <a class="email-text" href="mailto:{{ site.data.profile.email | encode_email }}">
                             {{ site.data.profile.email | replace: "@", "(at)" }}
                         </a>
+                        {% endif %}
                     </div>
                 </div>
 
@@ -76,6 +78,12 @@
                         {% if site.data.profile.linkedin %}
                         <a class="px-1 no-break" target="_blank" href="https://www.linkedin.com/in/{{ site.data.profile.linkedin }}">
                             <i class="fab fa-linkedin"></i>
+                        </a>
+                        {% endif %}
+
+                        {% if site.data.profile.instagram %}
+                        <a class="px-1 no-break" target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/{{ site.data.profile.instagram }}/" aria-label="Instagram" title="Instagram">
+                            <i class="fab fa-instagram" aria-hidden="true"></i>
                         </a>
                         {% endif %}
 

@@ -1,8 +1,15 @@
 @charset "utf-8";
 body {
+    position: relative;
     font-family: "Lato", sans-serif;
     font-weight: 400;
     padding-top: 5.0rem;
+}
+
+html { scroll-behavior: smooth; }
+#home, #education, #hobbies, #publications, #showcase { scroll-margin-top: 80px; }
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
 }
 
 h1, h2, h3, h4, h5, h6,
@@ -40,6 +47,10 @@ h1, h2, h3, h4, h5, h6,
 .text-profile-bio {
     /* font-family: "Raleway"; */
     font-weight: 400;
+}
+
+.text-profile-bio > :last-child {
+    margin-bottom: 0;
 }
 
 .navbar {
@@ -90,4 +101,137 @@ div.lazy {
 
 .email-text {
     font-family: Source Code Pro, monospace;
+}
+
+.publication-year {
+    color: #64707c;
+    font-size: 0.875rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    scroll-margin-top: 80px;
+}
+.publication-entry + .publication-entry {
+    border-top: 1px solid #e9ecef;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+}
+.publication-entry + .publication-year { margin-top: 2rem; }
+.publication-title {
+    font-size: 1rem;
+    line-height: 1.45;
+    margin-bottom: 0.45rem;
+}
+.publication-authors {
+    font-size: 0.85rem;
+    line-height: 1.6;
+    margin-bottom: 0.4rem;
+}
+.publication-authors strong {
+    font-weight: 900;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+.publication-venue {
+    color: #48545f;
+    font-size: 0.85rem;
+    font-style: italic;
+    margin-bottom: 0.85rem;
+}
+.publication-summary {
+    color: #64707c;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: 1rem;
+}
+.publication-links { display: flex; flex-wrap: wrap; gap: 0.25rem 1rem; }
+.publication-link {
+    color: #008575;
+    font-size: 0.8rem;
+    line-height: 1.6;
+    text-decoration: none;
+}
+a.publication-link:hover, a.publication-link:focus-visible {
+    color: #00675b;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+.publication-details { margin-top: 1rem; font-size: 0.8rem; color: #64707c; }
+.publication-details summary { cursor: pointer; width: fit-content; }
+
+.hobby-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    list-style: none;
+    padding: 0;
+    margin: 12px 0 0;
+}
+
+.hobby-item {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border: 1px solid var(--hobby-border);
+    border-radius: 10px;
+    background: var(--hobby-bg);
+    color: var(--hobby-color);
+}
+
+.hobby-photo {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: contain;
+    object-position: center;
+    background: var(--hobby-bg);
+    flex: 0 0 auto;
+}
+
+.hobby-caption {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 14px;
+    margin-top: auto;
+}
+
+.hobby-tennis {
+    --hobby-bg: #f3f8ef;
+    --hobby-border: #e1ebd9;
+    --hobby-color: #48703a;
+}
+
+.hobby-snowboarding {
+    --hobby-bg: #f0f6fb;
+    --hobby-border: #dce8f2;
+    --hobby-color: #3d678a;
+}
+
+.hobby-name {
+    font-size: .95rem;
+    font-weight: 700;
+}
+
+.hobby-symbol {
+    flex: 0 0 24px;
+    text-align: center;
+    font-size: 1.1rem;
+    line-height: 1.5;
+}
+
+.hobby-eating {
+    --hobby-bg: #fff7ed;
+    --hobby-border: #f1e2ce;
+    --hobby-color: #8a6034;
+}
+
+.hobby-sleeping {
+    --hobby-bg: #f6f3fb;
+    --hobby-border: #e7dff2;
+    --hobby-color: #70608a;
+}
+
+@media (max-width: 575.98px) {
+    .hobby-list { grid-template-columns: 1fr; }
 }

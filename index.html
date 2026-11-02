@@ -1,10 +1,11 @@
 ---
 layout: default
-title : Homepage
+title: Home
 navbar_title: Home
+body_attr: 'data-spy="scroll" data-target="#main-navigation" data-offset="100"'
 ---
 
-<div class="row">
+<div class="row" id="home">
     <div class="col-lg-3 col-md-4">
         {% include widgets/profile_card_mini.html %}
     </div>
@@ -12,13 +13,51 @@ navbar_title: Home
 
         {% include widgets/profile_card_bio_only.html %}
 
-        <!-- Debugging widgets -->
-        {% include widgets/debug_repo_name.html %}
-        {% include widgets/debug_url.html %}
+
 
         {% if site.data.display.homepage.show_experience %}
+        <section id="education" aria-label="Education">
             {% include widgets/experience_card.html %}
+        </section>
         {% endif %}
+
+        <section id="hobbies" class="mt-3" aria-labelledby="hobbies-title">
+            <div class="card border-0 shadow-sm bg-white">
+                <div class="card-body p-4">
+                    <h2 id="hobbies-title" class="h6 mb-2">Hobbies</h2>
+                    <ul class="hobby-list">
+                        <li class="hobby-item hobby-tennis">
+                            <img class="hobby-photo" src="{{ '/assets/images/hobbies/tennis-court.jpg' | relative_url }}" alt="A quiet blue tennis court in warm evening light" width="900" height="506" loading="lazy" decoding="async">
+                            <div class="hobby-caption">
+                                <span class="hobby-symbol" aria-hidden="true">&#127934;</span>
+                                <span class="hobby-name">Tennis</span>
+                            </div>
+                        </li>
+                        <li class="hobby-item hobby-snowboarding">
+                            <img class="hobby-photo" src="{{ '/assets/images/hobbies/snowboarding-landscape.jpg' | relative_url }}" alt="A snowboarder crossing an open slope beneath snowy mountains and a blue sky" width="900" height="573" loading="lazy" decoding="async">
+                            <div class="hobby-caption">
+                                <span class="hobby-symbol" aria-hidden="true">&#127938;</span>
+                                <span class="hobby-name">Snowboarding</span>
+                            </div>
+                        </li>
+                        <li class="hobby-item hobby-eating">
+                            <img class="hobby-photo" src="{{ '/assets/images/hobbies/lulu-eating-1.gif' | relative_url }}" alt="Capylulu holding a bowl and eating with chopsticks" width="400" height="400" loading="lazy" decoding="async">
+                            <div class="hobby-caption">
+                                <span class="hobby-symbol" aria-hidden="true">&#127869;&#65039;</span>
+                                <span class="hobby-name">Eating</span>
+                            </div>
+                        </li>
+                        <li class="hobby-item hobby-sleeping">
+                            <img class="hobby-photo" src="{{ '/assets/images/hobbies/sleeping-lanyangyang.jpg' | relative_url }}" alt="Lazy Sheep sleeping peacefully under a blue blanket" width="1106" height="691" loading="lazy" decoding="async">
+                            <div class="hobby-caption">
+                                <span class="hobby-symbol" aria-hidden="true">&#128164;</span>
+                                <span class="hobby-name">Sleeping</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
 
         {% if site.data.display.homepage.show_news %}
         {% assign count_news = site.news | size %}
@@ -35,5 +74,27 @@ navbar_title: Home
         title='<i class="fas fa-star"></i> Selected Publications'
         %}
         {% endif %}
+        <section id="publications" class="mt-3" aria-labelledby="publications-title">
+            <div class="card border-0 shadow-sm bg-white">
+                <div class="card-body p-4">
+                    <h2 id="publications-title" class="h6 mb-2">Publications</h2>
+                    <p class="text-muted mb-0">to be updated</p>
+                </div>
+            </div>
+        </section>
+        {% comment %}
+        <section id="showcase" class="mt-3" aria-label="Showcase">
+            {% include widgets/showcase_section.html %}
+        </section>
+        {% endcomment %}
     </div>
 </div>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('#main-navigation .nav-link').forEach(function (link) {
+        link.addEventListener('click', function () {
+            if (window.jQuery) window.jQuery('#navbarResponsive').collapse('hide');
+        });
+    });
+});
+</script>
