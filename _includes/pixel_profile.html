@@ -5,7 +5,6 @@
             <img src="{{ site.data.profile.portrait_url | relative_url }}" alt="{{ site.data.profile.primary_name }}" width="998" height="906">
         </div>
         <h1>{{ site.data.profile.primary_name }}</h1>
-        <p class="profile-role">Undergraduate<br>Electrical &amp; Computer Engineering</p>
         <p class="profile-school">The Ohio State University</p>
         <a class="profile-email" href="mailto:{{ site.data.profile.email | encode_email }}">{{ site.data.profile.email }}</a>
         <div class="social-links" aria-label="Social profiles">
@@ -14,15 +13,5 @@
             {% if site.data.profile.instagram %}<a href="https://www.instagram.com/{{ site.data.profile.instagram }}/" target="_blank" rel="noopener noreferrer">Instagram ↗</a>{% endif %}
         </div>
     </div>
-    <div class="pixel-garden" aria-hidden="true">
-        <svg viewBox="0 0 160 36" shape-rendering="crispEdges" fill="none">
-            <path fill="var(--garden-sky)" d="M0 0h160v36H0z"/>
-            <path fill="var(--gold)" d="M123 5h8v2h2v8h-2v2h-8v-2h-2V7h2z"/>
-            <path fill="var(--panel)" d="M14 8h5V5h10v3h5v5H14zM70 5h5V2h8v3h6v5H70z"/>
-            <path fill="var(--garden-back)" d="M0 26h14v-4h14v-5h14v5h14v4h23v-4h12v-4h14v4h14v5h22v-4h19v13H0z"/>
-            <path fill="var(--accent)" d="M0 32h160v4H0zM18 26h2v6h-2zM16 25h2v3h-2zM20 24h2v3h-2zM139 26h2v6h-2zM137 24h2v4h-2zM141 25h2v3h-2z"/>
-            <path fill="var(--ink)" d="M65 23h3v-4h3v2h4v-2h3v9h-2v4h-3v-3h-5v3h-3v-4h-3v-4h3z"/>
-            <path fill="var(--panel)" d="M69 23h2v2h-2zM74 23h2v2h-2z"/>
-        </svg>
-    </div>
+    {% include pixel_flight.html %}
 </aside>

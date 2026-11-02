@@ -119,14 +119,28 @@ h1, h2, h3 { margin: 0; }
 .portrait-frame { width: 176px; max-width: 100%; margin: 0 auto 22px; padding: 6px; border: 2px solid var(--line); background: var(--panel); box-shadow: 4px 4px 0 var(--shadow); }
 .portrait-frame img { width: 100%; height: auto; display: block; }
 .profile-body h1 { margin-bottom: 14px; font: 400 15px/1.7 var(--pixel); }
-.profile-role { font-size: 13px; line-height: 1.7; margin-bottom: 8px; }
 .profile-school { font-size: 12px; color: var(--muted); margin-bottom: 14px; }
 .profile-email { font: 12px/1.6 var(--mono); overflow-wrap: anywhere; }
 .social-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 18px; }
 .social-links a { padding: 5px 7px; border: 1px solid var(--line); font: 11px/1.6 var(--mono); text-decoration: none; background: var(--panel); }
 .social-links a:hover { background: var(--active); }
-.pixel-garden { padding: 0 10px 10px; }
-.pixel-garden svg { display: block; width: 100%; height: auto; border: 1px solid var(--line); }
+.flight-console { max-width: 280px; margin: 0 12px 14px; padding: 10px; border: 1px solid var(--line); border-radius: 8px 8px 20px 8px; background: var(--panel); }
+.flight-screen { overflow: hidden; border: 3px solid #193b3d; border-radius: 4px; background: #122e38; }
+.flight-scene { display: block; width: 100%; height: auto; }
+.flight-controls { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-top: 10px; }
+.flight-badge { color: var(--muted); font: 9px/1.5 var(--mono); letter-spacing: 1px; }
+.flight-buttons { display: flex; gap: 8px; }
+.flight-buttons button { display: grid; place-items: center; width: 32px; height: 32px; padding: 8px; border: 1px solid var(--line); border-radius: 50%; background: var(--profile); color: var(--accent); box-shadow: 1px 2px 0 var(--shadow); }
+.flight-buttons button:hover { background: var(--active); }
+.flight-buttons button:active { transform: translateY(2px); box-shadow: none; }
+.flight-buttons svg { display: block; width: 14px; height: 14px; }
+.flight-play-symbol, .is-paused .flight-pause-symbol { display: none; }
+.is-paused .flight-play-symbol { display: block; }
+.hero-boost { transform-origin: 78px 44px; transition: transform .25s ease-out; }
+.is-boosting .hero-boost { transform: translate(7px, -8px) rotate(8deg); }
+.hero-exhaust { transform-box: fill-box; transform-origin: top; }
+.is-boosting .hero-exhaust { scale: 1 1.4; }
+.flight-console.is-paused :is(.hero-drift, .hero-exhaust, .flight-clouds, .flight-skyline) { animation-play-state: paused; }
 
 .education-entry { display: flex; align-items: flex-start; gap: 12px; }
 .education-entry + .education-entry { margin-top: 18px; }
@@ -171,10 +185,10 @@ h1, h2, h3 { margin: 0; }
     .profile-panel { position: static; width: 100%; }
     .profile-body { display: grid; grid-template-columns: 160px minmax(0, 1fr); column-gap: 26px; padding: 22px 20px; text-align: left; }
     .profile-body > :not(.portrait-frame) { grid-column: 2; }
-    .portrait-frame { grid-column: 1; grid-row: 1 / span 5; align-self: start; width: 160px; margin: 0; }
+    .portrait-frame { grid-column: 1; grid-row: 1 / span 4; align-self: start; width: 160px; margin: 0; }
     .profile-body h1 { font-size: 16px; }
     .social-links { justify-content: flex-start; margin-top: 12px; }
-    .pixel-garden { display: none; }
+    .flight-console { width: calc(100% - 28px); margin: 0 auto 16px; }
 }
 @media (max-width: 520px) {
     .page-shell { padding: 24px 14px 0; }
@@ -203,9 +217,18 @@ h1, h2, h3 { margin: 0; }
     .terminal-brand { font-size: 12px; }
 }
 @media (prefers-reduced-motion: no-preference) {
+    .hero-drift { animation: hero-hover 4s ease-in-out infinite; }
+    .hero-exhaust { animation: thruster-flicker .3s steps(2, end) infinite; }
+    .flight-clouds { animation: flight-scroll 28s linear infinite; }
+    .flight-skyline { animation: flight-scroll 18s linear infinite; }
+    @keyframes hero-hover { 0%, 100% { transform: translate(-3px, 2px); } 50% { transform: translate(3px, -4px); } }
+    @keyframes thruster-flicker { 0%, 100% { transform: scaleY(.8); } 50% { transform: scaleY(1); } }
+    @keyframes flight-scroll { to { transform: translateX(-160px); } }
     .terminal-cursor { animation: cursor-blink 1.2s steps(1) infinite; }
     @keyframes cursor-blink { 50% { opacity: 0; } }
 }
 @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
+    .hero-boost { transition: none; }
+    .is-boosting .hero-boost { transform: none; }
 }

@@ -24,6 +24,46 @@
         });
     }
 
+    var flight = document.querySelector('.flight-console');
+    if (flight) {
+        var pause = flight.querySelector('.flight-pause');
+        var boost = flight.querySelector('.flight-boost');
+        var motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
+        var boostTimer;
+        flight.querySelector('.flight-controls').hidden = false;
+
+        function stopBoost() {
+            window.clearTimeout(boostTimer);
+            flight.classList.remove('is-boosting');
+        }
+
+        function setPaused(paused) {
+            flight.classList.toggle('is-paused', paused);
+            pause.setAttribute('aria-pressed', String(paused));
+            pause.setAttribute('aria-label', paused ? 'Play flight animation' : 'Pause flight animation');
+            if (paused) stopBoost();
+        }
+
+        function syncMotionPreference() {
+            stopBoost();
+            setPaused(motionPreference.matches);
+            flight.querySelector('.flight-controls').hidden = motionPreference.matches;
+        }
+
+        pause.addEventListener('click', function () {
+            setPaused(!flight.classList.contains('is-paused'));
+        });
+        boost.addEventListener('click', function () {
+            if (motionPreference.matches) return;
+            window.clearTimeout(boostTimer);
+            setPaused(false);
+            flight.classList.add('is-boosting');
+            boostTimer = window.setTimeout(stopBoost, 1400);
+        });
+        motionPreference.addEventListener('change', syncMotionPreference);
+        syncMotionPreference();
+    }
+
     var links = Array.from(document.querySelectorAll('.nav-links a[data-section]'));
     var sections = links.map(function (link) { return document.getElementById(link.dataset.section); });
     var pending = false;
