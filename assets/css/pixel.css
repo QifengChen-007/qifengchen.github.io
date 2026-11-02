@@ -205,11 +205,12 @@ h1, h2, h3 { margin: 0; }
 }
 @media (max-width: 520px) {
     .page-shell { padding: 24px 14px 0; }
-    .site-nav { padding-inline: 10px; font-size: 11px; }
-    .nav-actions { gap: 4px; }
-    .nav-links { gap: 0; }
-    .nav-links a { padding-inline: 6px; }
-    .theme-toggle { min-width: 36px; padding: 6px; }
+    .site-nav { display: grid; grid-template-columns: minmax(0, 1fr) auto; padding-inline: 10px; font-size: 11px; }
+    .terminal-brand { grid-column: 1; grid-row: 1; align-self: center; }
+    .nav-actions { display: contents; }
+    .nav-links { grid-column: 1 / -1; grid-row: 2; justify-content: space-between; gap: 0; }
+    .nav-links a { padding-inline: 4px; }
+    .theme-toggle { grid-column: 2; grid-row: 1; min-width: 36px; padding: 6px; }
     .theme-label { display: none; }
     .profile-body { display: block; padding: 20px 14px; text-align: center; }
     .portrait-frame { width: 136px; margin: 0 auto 18px; }
@@ -226,7 +227,7 @@ h1, h2, h3 { margin: 0; }
 }
 @media (max-width: 359px) {
     .hobby-list { grid-template-columns: 1fr; }
-    .nav-links a { padding-inline: 4px; font-size: 10px; }
+    .nav-links a { padding-inline: 2px; font-size: 10px; }
     .terminal-brand { font-size: 12px; }
 }
 @media (prefers-reduced-motion: no-preference) {

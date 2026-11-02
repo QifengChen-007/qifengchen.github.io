@@ -3,6 +3,8 @@ pages:
     url: /#home
   - name: Education
     url: /#education
+  - name: Experience
+    url: /#experience
   - name: Hobbies
     url: /#hobbies
   - name: Publications

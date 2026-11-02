@@ -22,9 +22,24 @@ title: Home
             {% include pixel_education.html %}
         {% endif %}
 
-        <section id="hobbies" class="pixel-panel section-panel" aria-labelledby="hobbies-title">
+        <section id="experience" class="pixel-panel section-panel" aria-labelledby="experience-title">
             <div class="section-heading">
                 <span class="section-number" aria-hidden="true">03</span>
+                <h2 id="experience-title">Experience</h2>
+                {% include pixel_icon.html name="briefcase" %}
+            </div>
+            <div class="section-body">
+                {% for item in site.data.profile.experience %}
+                <div class="education-entry"><div><h3>{{ item.name }}</h3><p>{{ item.position }}</p><p class="education-meta">{{ item.date }}</p></div></div>
+                {% else %}
+                <p class="publication-placeholder"><span class="pixel-dots" aria-hidden="true">···</span> to be updated</p>
+                {% endfor %}
+            </div>
+        </section>
+
+        <section id="hobbies" class="pixel-panel section-panel" aria-labelledby="hobbies-title">
+            <div class="section-heading">
+                <span class="section-number" aria-hidden="true">04</span>
                 <h2 id="hobbies-title">Hobbies</h2>
                 <button class="hobby-motion" type="button" aria-label="Pause hobby animations" aria-pressed="false" title="Pause / play animations" hidden>
                     <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path class="hobby-pause-symbol" d="M4 3h3v10H4zM9 3h3v10H9z"/><path class="hobby-play-symbol" d="M4 2v12l10-6z"/></svg>
@@ -54,7 +69,7 @@ title: Home
 
         <section id="publications" class="pixel-panel section-panel" aria-labelledby="publications-title">
             <div class="section-heading">
-                <span class="section-number" aria-hidden="true">04</span>
+                <span class="section-number" aria-hidden="true">05</span>
                 <h2 id="publications-title">Publications</h2>
                 {% include pixel_icon.html name="file" %}
             </div>
