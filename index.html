@@ -26,24 +26,26 @@ title: Home
             <div class="section-heading">
                 <span class="section-number" aria-hidden="true">03</span>
                 <h2 id="hobbies-title">Hobbies</h2>
-                {% include pixel_icon.html name="sprout" %}
+                <button class="hobby-motion" type="button" aria-label="Pause hobby animations" aria-pressed="false" title="Pause / play animations" hidden>
+                    <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path class="hobby-pause-symbol" d="M4 3h3v10H4zM9 3h3v10H9z"/><path class="hobby-play-symbol" d="M4 2v12l10-6z"/></svg>
+                </button>
             </div>
             <div class="section-body">
                 <ul class="hobby-list">
                     <li class="hobby-item hobby-tennis">
-                        <img class="hobby-photo" src="{{ '/assets/images/hobbies/tennis-court.jpg' | relative_url }}" alt="A quiet blue tennis court in warm evening light" width="900" height="506" loading="lazy" decoding="async">
+                        {% include hobbies/tennis.html %}
                         <div class="hobby-caption">{% include pixel_icon.html name="tennis" %}<span>Tennis</span></div>
                     </li>
                     <li class="hobby-item hobby-snowboarding">
-                        <img class="hobby-photo" src="{{ '/assets/images/hobbies/snowboarding-landscape.jpg' | relative_url }}" alt="A snowboarder crossing an open slope beneath snowy mountains and a blue sky" width="900" height="573" loading="lazy" decoding="async">
+                        {% include hobbies/snowboarding.html %}
                         <div class="hobby-caption">{% include pixel_icon.html name="snowboard" %}<span>Snowboarding</span></div>
                     </li>
                     <li class="hobby-item hobby-eating">
-                        <img class="hobby-photo" src="{{ '/assets/images/hobbies/lulu-eating-1.gif' | relative_url }}" alt="Capylulu holding a bowl and eating with chopsticks" width="400" height="400" loading="lazy" decoding="async">
+                        {% include hobbies/eating.html %}
                         <div class="hobby-caption">{% include pixel_icon.html name="eating" %}<span>Eating</span></div>
                     </li>
                     <li class="hobby-item hobby-sleeping">
-                        <img class="hobby-photo" src="{{ '/assets/images/hobbies/sleeping-lanyangyang.jpg' | relative_url }}" alt="Lazy Sheep sleeping peacefully under a blue blanket" width="1106" height="691" loading="lazy" decoding="async">
+                        {% include hobbies/sleeping.html %}
                         <div class="hobby-caption">{% include pixel_icon.html name="sleeping" %}<span>Sleeping</span></div>
                     </li>
                 </ul>

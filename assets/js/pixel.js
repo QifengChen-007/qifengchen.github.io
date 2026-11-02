@@ -64,6 +64,30 @@
         syncMotionPreference();
     }
 
+    var hobbies = document.getElementById('hobbies');
+    if (hobbies) {
+        var hobbyMotion = hobbies.querySelector('.hobby-motion');
+        var hobbyPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
+        var hobbyPaused = false;
+
+        function updateHobbyMotion() {
+            var paused = hobbyPaused || hobbyPreference.matches;
+            hobbies.classList.toggle('hobbies-paused', paused);
+            hobbyMotion.hidden = hobbyPreference.matches;
+            hobbyMotion.setAttribute('aria-pressed', String(paused));
+            hobbyMotion.setAttribute('aria-label', paused ? 'Play hobby animations' : 'Pause hobby animations');
+        }
+
+        if (hobbyMotion) {
+            hobbyMotion.addEventListener('click', function () {
+                hobbyPaused = !hobbyPaused;
+                updateHobbyMotion();
+            });
+            hobbyPreference.addEventListener('change', updateHobbyMotion);
+            updateHobbyMotion();
+        }
+    }
+
     var links = Array.from(document.querySelectorAll('.nav-links a[data-section]'));
     var sections = links.map(function (link) { return document.getElementById(link.dataset.section); });
     var pending = false;
